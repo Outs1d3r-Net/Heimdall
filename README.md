@@ -1,4 +1,4 @@
-# Heimdall v1.0  
+# Heimdall v2.0  
 > The subdomains discovery !  
 
 [![Banner](banner.png)](href="#")
@@ -14,6 +14,7 @@ $ sudo apt update
 $ sudo apt install -y git
 $ git clone https://github.com/Outs1d3r-Net/Heimdall.git
 $ cd Heimdall
+$ sudo python3 -m pip install -r requirements.txt
 ```
 
 ## Usage  

@@ -1,3 +1,4 @@
+from progress.bar import Bar
 from datetime import *
 import requests
 import platform
@@ -14,7 +15,7 @@ cls
 
 if len(sys.argv) != 3:
     print("#"*42)
-    print("\t\b\b\bHEIMDALL v.1.0 by: Outs1d3r-Net")
+    print("\t\b\b\bHEIMDALL v.2.0 by: Outs1d3r-Net")
     print("#"*42)
     print('''
 MMMMMMMMM0kWMk;dNWo,;,:oNNOkd0WMMMMMMO
@@ -50,7 +51,7 @@ MMM:;oX     ' c    c.       l dMMMMMMO
 
 
 print("#"*32)
-print("[*]\tHEIMDALL v.1.0\t[*]")
+print("[*]\tHEIMDALL v.2.0\t[*]")
 print("#"*32)
 
 now = datetime.now()
@@ -87,11 +88,16 @@ MMM:;oX     ' c    c.       l dMMMMMMO
 ''')
 
 print("Set Target: [",str(sys.argv[1]),"]")
-print("\n.\n[STATUS CODE]\t\t[HOST]")
+print("\n.\n\t\t\t\t\t\t\t\t\b\b[STATUS CODE]\t\t[HOST]\n")
 
 subFOUND = []
 
 f = open(str(sys.argv[2]), "r")
+
+lenfile = open(str(sys.argv[2]),'r').read()
+lenfile = len(lenfile.split())
+bar = Bar('searching', max=int(lenfile))
+
 for line in f:
 
     line = line.replace('\n', '')
@@ -112,11 +118,9 @@ for line in f:
     line = line.replace('^', '')
     line = line.replace('~', '')
 
-
-
     try:
         r = requests.head('http://'+line+'.'+str(sys.argv[1]))
-        print('\t\b\b\b',r.status_code,'\t\thttp://'+str(line)+'.'+str(sys.argv[1]))
+        print('\t\t',r.status_code,'\t\t\thttp://'+str(line)+'.'+str(sys.argv[1]))
         subFOUND.append(line+'.'+str(sys.argv[1]))
     except UnicodeError:
         pass
@@ -124,6 +128,10 @@ for line in f:
         pass
     except requests.ConnectionError as exc:
         pass
+
+    bar.next()
+
+bar.finish()
 
 print('\nShow Found: [\n')
 for d in subFOUND:
