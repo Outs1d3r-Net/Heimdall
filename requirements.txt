@@ -1,6 +1,3 @@
 progress
 datetime
 requests
-platform
-sys
-os
