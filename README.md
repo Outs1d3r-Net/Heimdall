@@ -18,11 +18,15 @@ $ sudo python3 -m pip install -r requirements.txt
 ```
 
 ## Usage  
+#### With Small Wordlist:  
 ```
-$ python3 Heimdall.py TARGET.COM wordlist.txt
+$ python3 Heimdall.py TARGET.COM ./wordlists/Wsmall.txt
 ```
   
-  
+#### With Big Wordlist:  
+```
+$ python3 Heimdall.py TARGET.COM ./wordlists/Wbig.txt
+```  
   
 With great powers, great responsibilities !  
 
